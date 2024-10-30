@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-depl
+  namespace: default
+  labels:
+    app: auth
+    stage: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth
+  template:
+    metadata:
+      labels:
+        app: auth
+    spec:
+      containers:
+      - name: auth-container
+        image: andinianst93/ms-andini-betest:v1
+        ports:
+        - containerPort: 4000
+          name: http-auth-svc
+        envFrom:
+        - secretRef:
+            name: auth-secret
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auth-svc
+  namespace: default
+spec:
+  selector:
+    app: auth
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: http-auth-svc
