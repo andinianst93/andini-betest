@@ -1,0 +1,1 @@
+All details about the API can be found in the email.

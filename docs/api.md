@@ -1,6 +1,10 @@
 # API Documentation
 
-## Repo: https://github.com/andinianst93/andini-betest
+## Github Repo
+- https://github.com/andinianst93/andini-betest
+
+## Docker Hub
+- andinianst93/ms-andini-betest
 
 ## Authorization
 - For the authorization, I used the session cookie. The session cookie is created when the user sign up and logs in and is destroyed when the user logs out. 
