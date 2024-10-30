@@ -26,6 +26,9 @@ coverage
 node_modules
 bower_components
 
+# Optional directory
+docs/
+
 # Editors
 .idea
 *.iml
@@ -41,3 +44,4 @@ dist/**/*
 yarn.lock
 # ignore kubernetes secret
 secret.sh
+
